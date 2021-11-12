@@ -102,7 +102,10 @@ function updateInfo(id, index) {
     console.log(id)
 
 
-    
+    var name = document.getElementById(id + "n").value;
+    var email = document.getElementById(id + "e").value;
+    var address = document.getElementById(id + "a").value;
+
     // if (name) { axios.put(`http://assignment-api-mongo.herokuapp.com/user/${id}`, {
     //        name
     //      })
@@ -122,16 +125,7 @@ function updateInfo(id, index) {
     })
 
 
-}
-
-
-const updateUser = (uid) =>{
-
-    var name = document.getElementById(uid + "n").value;
-    var email = document.getElementById(uid + "e").value;
-    var address = document.getElementById(uid + "a").value;
-
-    axios.put(`http://assignment-api-mongo.herokuapp.com/user/${uid}` ,{
+    axios.put(`http://assignment-api-mongo.herokuapp.com/user/${id}` ,{
     
         name,
         email,
@@ -147,8 +141,7 @@ const updateUser = (uid) =>{
 
     })
 
-
-
 }
+
 
 getAllUser();

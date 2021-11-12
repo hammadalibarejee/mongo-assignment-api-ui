@@ -46,7 +46,7 @@ function getAllUser() {
                                 <td>
                                     <button type="button" onclick="deleteUser('${eachUser._id}')" id="delete" class="btn btn-danger hid">delete</button>
                                     <button type="button" class="btn btn-danger hid" id="${eachUser._id}edit" onclick="editInfo('${eachUser._id}')" >Edit</button>
-                                    <button type="button" style="display:none;" class="btn btn-danger" id="${eachUser._id}update" onclick="updateInfo('${eachUser._id}',${index})"  >Update</button>
+                                    <button type="button" style="display:none;" class="btn btn-danger" id="${eachUser._id}update" onclick="updateInfo('${eachUser._id}','${index}')"  >Update</button>
                                 </td>
                             </tr>`
             })
@@ -119,9 +119,6 @@ function updateInfo(id, index) {
         document.getElementById(id + "n").value = res.data[index].name;
         document.getElementById(id + "e").value = res.data[index].email;
         document.getElementById(id + "a").value = res.data[index].address;
-
-    updateUser(id);
-
     })
 
 

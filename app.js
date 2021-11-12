@@ -3,7 +3,7 @@ function createUser() {
     let email = document.getElementById("inputEmail").value
     let address = document.getElementById("inputAddress").value
 
-    axios.post('http://assignment-api-mongo.herokuapp.com/user', {
+    axios.post('https://assignment-api-mongo.herokuapp.com/user', {
         name, email, address
     })
         .then(function (response) {
@@ -28,7 +28,7 @@ function createUser() {
 }
 function getAllUser() {
 
-    axios.get('http://assignment-api-mongo.herokuapp.com/users')
+    axios.get('https://assignment-api-mongo.herokuapp.com/users')
         .then(function (response) {
             console.log(response);
 
@@ -57,7 +57,7 @@ function getAllUser() {
 function deleteUser(_id) {
     // alert("sgdgfg");
 
-    axios.delete(`http://assignment-api-mongo.herokuapp.com/user/${_id}`)
+    axios.delete(`https://assignment-api-mongo.herokuapp.com/user/${_id}`)
         .then(function (response) {
             console.log(response);
 
@@ -115,7 +115,7 @@ function updateInfo(id, index) {
     // if (address) { axios.put(`http://assignment-api-mongo.herokuapp.com/user/${id}`, { 
     //     address }).then(res => location.reload()); }
 
-    axios.get("http://assignment-api-mongo.herokuapp.com/users").then((res)=>{
+    axios.get("https://assignment-api-mongo.herokuapp.com/users").then((res)=>{
         document.getElementById(id + "n").value = res.data[index].name;
         document.getElementById(id + "e").value = res.data[index].email;
         document.getElementById(id + "a").value = res.data[index].address;
@@ -125,7 +125,7 @@ function updateInfo(id, index) {
     })
 
 
-    axios.put(`http://assignment-api-mongo.herokuapp.com/user/${id}` ,{
+    axios.put(`https://assignment-api-mongo.herokuapp.com/user/${id}` ,{
     
         name,
         email,

@@ -1,3 +1,8 @@
+
+
+
+
+let users = [];
 function createUser() {
     let name = document.getElementById("inputName").value
     let email = document.getElementById("inputEmail").value
@@ -32,20 +37,23 @@ function getAllUser() {
         .then(function (response) {
             console.log(response);
 
-            let users = response.data;
+            users = response.data;
 
             document.getElementById("tableBody").innerHTML = ""
 
             users.map((eachUser, index) => {
                 document.getElementById("tableBody").innerHTML +=
-                    `<tr id="${eachUser._id}">
+                    `<tr id="${eachUser._id}" ata-aos="fade-zoom-in"
+                    data-aos-easing="ease-in-back"
+                    data-aos-delay="500"
+                    data-aos-offset="0">
                                 <th scope="row">${eachUser._id}</th>
                                 <td>${eachUser.name}</td>
                                 <td>${eachUser.email}</td>
                                 <td>${eachUser.address}</td>
                                 <td>
                                     <button type="button" onclick="deleteUser('${eachUser._id}')"  class="btn btn-danger hid">delete</button>
-                                    <button type="button" class="btn btn-danger "  onclick="editInfo('${eachUser._id}','${eachUser.index}')" >Edit</button>
+                                    <button type="button" class="btn btn-danger "  onclick="editInfo('${eachUser._id}','${index}')" >Edit</button>
                                     
                                 </td>
                             </tr>`
@@ -64,7 +72,7 @@ function deleteUser(_id) {
             getAllUser();
 
             document.getElementById("alert").innerHTML =
-                `<div class="alert alert-danger" role="alert">
+                `<div class="alert alert-danger animate" role="alert">
                             User Deleted Success!
                         </div>`
 
@@ -81,11 +89,11 @@ function editInfo(id, index) {
     console.log(userObject);
 
     document.getElementById(id).innerHTML =
-        `<tr id="${eachUser._id}">
+        `<tr id="${id}" class="animate">
         <th scope="row">${id}</th>
-        <td><input type="text" id ="${userObject}-name" value="${userObject.name}"></td>
-        <td><input type="text" id ="${userObject}-email" value="${userObject.email}"></td>
-        <td><input type="text" id ="${userObject}-address" value="${userObject.address}"></td>
+        <td><input type="text" id ="${id}-name" value="${userObject.name}"></td>
+        <td><input type="text" id ="${id}-email" value="${userObject.email}"></td>
+        <td><input type="text" id ="${id}-address" value="${userObject.address}"></td>
         <td>
         <button type="button" class="btn btn-success" onclick="updateInfo('${id}','${index}')">Update</button>
         

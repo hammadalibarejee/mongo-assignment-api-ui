@@ -41,3 +41,8 @@ button:hover{
     transition: ease-in;
     transition-duration: 0.6s;   
 }
+.animate{
+    transition: ease-in;
+    -webkit-transition: ease-in;
+    transition-duration: 0.6s;
+}
